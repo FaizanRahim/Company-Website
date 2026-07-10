@@ -1,7 +1,7 @@
-# Lumen — IT Company Website (long, animated, 6 pages)
+# Lumen — IT Company Website (long, animated, with images)
 
-Next.js 14 + Tailwind CSS + Framer Motion. Full-length, heavily
-animated IT company website.
+Next.js 14 + Tailwind CSS + Framer Motion. Full-length, animated IT
+company website with placeholder photography throughout.
 
 ## Run karne ka tareeqa
 
@@ -16,12 +16,29 @@ npm run dev
 
 | Route        | Sections                                                                 |
 |--------------|---------------------------------------------------------------------------|
-| `/`          | Hero, client marquee, animated stats counters, 6 services, 4-step process, testimonials, tech stack, FAQ, CTA |
-| `/services`  | 6 detailed services, industries marquee, comparison table, FAQ, CTA     |
-| `/projects`  | Filterable portfolio (9 projects, category tabs with animated transitions) |
-| `/about`     | Story, animated stats, timeline, values, 6-person team grid, CTA        |
+| `/`          | Hero (background photo), client marquee, animated stats, 6 services, process, testimonials (avatar photos), tech stack, FAQ, CTA |
+| `/services`  | Hero with supporting photo, 6 detailed services, industries marquee, comparison table, FAQ |
+| `/projects`  | 9 projects with real thumbnail photos, filterable by category            |
+| `/about`     | Office photo, animated stats, timeline, founder spotlight (photo + quote), values, 6-person team grid (real headshots) |
 | `/pricing`   | 3 plans, monthly/yearly toggle, FAQ                                     |
-| `/contact`   | Working form (validation + submit states), map placeholder, socials, FAQ |
+| `/contact`   | Working form, office location photo, socials, FAQ                       |
+
+## About the images
+
+All images are **placeholder/dummy photos** pulled live from two free
+placeholder services, so nothing is stored in the project:
+
+- **picsum.photos** — hero banners, project thumbnails, office photos
+- **i.pravatar.cc** — team headshots and testimonial avatars
+
+They're wired through `next/image` (see `images.remotePatterns` in
+`next.config.js`). To swap in your real photos:
+
+1. Drop your images into the `public/` folder (e.g. `public/team/ayesha.jpg`)
+2. Replace the matching `src="https://picsum.photos/..."` or
+   `i.pravatar.cc` URL with `"/team/ayesha.jpg"`
+3. No other code changes needed — `next/image` handles local and
+   remote sources the same way
 
 ## Animation features
 

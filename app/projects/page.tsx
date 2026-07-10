@@ -2,20 +2,21 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const categories = ["All", "Fintech", "E-commerce", "Healthcare", "Logistics", "SaaS", "Security"];
 
 const projects = [
-  { name: "Finlytics", tag: "Fintech", desc: "Real-time analytics platform for a payments startup, handling 2M+ transactions monthly.", stat: "2M+ tx / mo" },
-  { name: "Cartly", tag: "E-commerce", desc: "Headless storefront rebuild that cut page load time by 60% and lifted conversion by 18%.", stat: "+18% conversion" },
-  { name: "MedSync", tag: "Healthcare", desc: "HIPAA-compliant patient scheduling system used across 40 clinics.", stat: "40 clinics" },
-  { name: "Fleetwise", tag: "Logistics", desc: "Cloud infrastructure and live tracking for a regional delivery fleet.", stat: "300+ vehicles" },
-  { name: "Studio OS", tag: "SaaS", desc: "Project management tool built from scratch for creative agencies.", stat: "5k+ users" },
-  { name: "Vaultpay", tag: "Security", desc: "Security audit and infrastructure hardening for a digital wallet provider.", stat: "0 breaches" },
-  { name: "Ledgerly", tag: "Fintech", desc: "Automated bookkeeping platform integrating with 12 major banks.", stat: "12 bank APIs" },
-  { name: "Shelfie", tag: "E-commerce", desc: "Inventory sync engine connecting Shopify, Amazon, and in-store POS.", stat: "3 channels synced" },
-  { name: "CarePath", tag: "Healthcare", desc: "Patient intake and triage app reducing wait times by 40%.", stat: "-40% wait time" },
+  { name: "Finlytics", tag: "Fintech", desc: "Real-time analytics platform for a payments startup, handling 2M+ transactions monthly.", stat: "2M+ tx / mo", img: "finlytics" },
+  { name: "Cartly", tag: "E-commerce", desc: "Headless storefront rebuild that cut page load time by 60% and lifted conversion by 18%.", stat: "+18% conversion", img: "cartly" },
+  { name: "MedSync", tag: "Healthcare", desc: "HIPAA-compliant patient scheduling system used across 40 clinics.", stat: "40 clinics", img: "medsync" },
+  { name: "Fleetwise", tag: "Logistics", desc: "Cloud infrastructure and live tracking for a regional delivery fleet.", stat: "300+ vehicles", img: "fleetwise" },
+  { name: "Studio OS", tag: "SaaS", desc: "Project management tool built from scratch for creative agencies.", stat: "5k+ users", img: "studioos" },
+  { name: "Vaultpay", tag: "Security", desc: "Security audit and infrastructure hardening for a digital wallet provider.", stat: "0 breaches", img: "vaultpay" },
+  { name: "Ledgerly", tag: "Fintech", desc: "Automated bookkeeping platform integrating with 12 major banks.", stat: "12 bank APIs", img: "ledgerly" },
+  { name: "Shelfie", tag: "E-commerce", desc: "Inventory sync engine connecting Shopify, Amazon, and in-store POS.", stat: "3 channels synced", img: "shelfie" },
+  { name: "CarePath", tag: "Healthcare", desc: "Patient intake and triage app reducing wait times by 40%.", stat: "-40% wait time", img: "carepath" },
 ];
 
 export default function ProjectsPage() {
@@ -54,8 +55,15 @@ export default function ProjectsPage() {
               transition={{ delay: i * 0.05, duration: 0.4 }} whileHover={{ y: -4 }}
               className="glass flex flex-col justify-between rounded-2xl p-6">
               <div>
-                <div className="flex h-32 items-end justify-between rounded-xl bg-gradient-to-br from-[#243a2c] to-[#101711] p-4">
-                  <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-sagelight">{p.stat}</span>
+                <div className="relative flex h-32 items-end overflow-hidden rounded-xl">
+                  <Image
+                    src={`https://picsum.photos/seed/${p.img}/500/300`}
+                    alt={p.name}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                  <span className="relative z-10 m-4 rounded-full bg-black/40 px-3 py-1 text-xs text-sagelight backdrop-blur-sm">{p.stat}</span>
                 </div>
                 <p className="mt-4 text-xs uppercase tracking-widest text-sage">{p.tag}</p>
                 <p className="mt-1 font-display text-lg font-medium">{p.name}</p>

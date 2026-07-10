@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Marquee from "@/components/Marquee";
 
@@ -32,20 +33,27 @@ const faqs = [
 export default function ServicesPage() {
   return (
     <main className="pb-10">
-      <section className="mt-10">
-        <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="text-xs uppercase tracking-widest text-sage">
-          Services
-        </motion.p>
-        <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-          className="mt-2 max-w-xl font-display text-4xl font-semibold leading-tight md:text-5xl">
-          Everything you need to ship reliable software.
-        </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-          className="mt-4 max-w-lg text-sm text-mist/50">
-          Six core services, one accountable team. We plug in wherever
-          you need us — from a single audit to your entire engineering
-          function.
-        </motion.p>
+      <section className="mt-10 grid gap-8 md:grid-cols-2 md:items-center">
+        <div>
+          <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="text-xs uppercase tracking-widest text-sage">
+            Services
+          </motion.p>
+          <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+            className="mt-2 max-w-xl font-display text-4xl font-semibold leading-tight md:text-5xl">
+            Everything you need to ship reliable software.
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+            className="mt-4 max-w-lg text-sm text-mist/50">
+            Six core services, one accountable team. We plug in wherever
+            you need us — from a single audit to your entire engineering
+            function.
+          </motion.p>
+        </div>
+        <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.6 }}
+          className="glass relative h-56 overflow-hidden rounded-3xl md:h-72">
+          <Image src="https://picsum.photos/seed/lumen-services/900/600" alt="Engineers pairing on a project" fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
+        </motion.div>
       </section>
 
       <section className="mt-12 grid gap-4 md:grid-cols-2">
@@ -86,7 +94,7 @@ export default function ServicesPage() {
           <div className="grid grid-cols-3 border-b border-mist/10 px-6 py-4 text-xs uppercase tracking-widest text-mist/40">
             <span>Feature</span>
             <span className="text-center">Solo hire</span>
-            <span className="text-center text-sage">Lumen</span>
+            <span className="text-center text-sage">NorsTack</span>
           </div>
           {compare.map((c, i) => (
             <div key={c.feature} className={`grid grid-cols-3 items-center px-6 py-4 text-sm ${i % 2 === 0 ? "bg-white/[0.02]" : ""}`}>

@@ -1,16 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Counter from "@/components/Counter";
 
 const team = [
-  { name: "Ayesha Khan", role: "Founder & CEO" },
-  { name: "Bilal Ahmed", role: "Head of Engineering" },
-  { name: "Sara Malik", role: "Lead Product Designer" },
-  { name: "Usman Tariq", role: "DevOps Lead" },
-  { name: "Hina Raza", role: "QA Lead" },
-  { name: "Omar Farooq", role: "Client Success Manager" },
+  { name: "Zaman", role: "CEO & CO-Founder", img: "https://i.pravatar.cc/300?img=1" },
+  { name: "Asim", role: "CO-Founder", img: "https://i.pravatar.cc/300?img=2" },
+  { name: "Danish Ali", role: "CTO", img: "https://i.pravatar.cc/300?img=3" },
+  { name: "Zakir Butt", role: "CFO & HR", img: "https://i.pravatar.cc/300?img=4" },
+  { name: "Ejaz Mir", role: "Web Developer", img: "https://i.pravatar.cc/300?img=5" },
+  { name: "Faizan Rahim", role: "Team Lead", img: "https://i.pravatar.cc/300?img=6" },
 ];
 
 const values = [
@@ -40,18 +41,47 @@ export default function AboutPage() {
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
             className="mt-6 text-sm leading-relaxed text-mist/60">
-            Founded in 2018, Lumen started as a two-person freelance
+            Founded in 2018, NorsTack started as a two-person freelance
             studio and has grown into a full-service IT partner for
             startups and mid-size companies. We care as much about why
             we&apos;re building something as how it&apos;s built.
           </motion.p>
         </div>
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.6 }}
-          className="glass relative flex h-64 items-center justify-center overflow-hidden rounded-3xl md:h-80">
-          <div className="noise pointer-events-none absolute inset-0 opacity-30" />
-          <div className="orb h-28 w-28 rounded-full animate-float" />
+          className="glass relative h-64 overflow-hidden rounded-3xl md:h-80">
+          <Image
+            src="https://picsum.photos/seed/lumen-office/900/700"
+            alt="Lumen team at the office"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+          <div className="orb absolute -bottom-6 -right-6 h-28 w-28 rounded-full animate-float opacity-90" />
         </motion.div>
       </section>
+
+      {/* Founder spotlight */}
+      <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+        className="glass mt-16 flex flex-col items-center gap-6 rounded-[32px] p-8 text-center md:flex-row md:text-left md:p-10">
+        <Image
+          src="https://i.pravatar.cc/240?img=1"
+          alt="Zaman, CEO & CO-Founder"
+          width={120}
+          height={120}
+          className="h-28 w-28 shrink-0 rounded-full object-cover ring-2 ring-sage/40"
+        />
+        <div>
+          <p className="text-xs uppercase tracking-widest text-sage">Founder&apos;s note</p>
+          <p className="mt-2 text-lg leading-relaxed text-mist/80">
+            &ldquo;We started this company with a vision to deliver
+            exceptional solutions and build a talented team that cares
+            about excellence. Every member brings unique expertise to
+            the table, and together we create things that matter.&rdquo;
+          </p>
+          <p className="mt-3 text-sm font-medium">Zaman</p>
+          <p className="text-xs text-mist/40">CEO & CO-Founder</p>
+        </div>
+      </motion.section>
 
       {/* Stats */}
       <section className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4">
@@ -104,7 +134,7 @@ export default function AboutPage() {
           {team.map((t, i) => (
             <motion.div key={t.name} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }} whileHover={{ y: -4 }} className="glass rounded-2xl p-5 text-center">
-              <div className="mx-auto h-16 w-16 rounded-full bg-sagelight/30" />
+              <Image src={t.img} alt={t.name} width={64} height={64} className="mx-auto h-16 w-16 rounded-full object-cover" />
               <p className="mt-3 text-sm font-medium">{t.name}</p>
               <p className="text-xs text-mist/40">{t.role}</p>
             </motion.div>

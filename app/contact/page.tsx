@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -143,9 +144,10 @@ export default function ContactPage() {
 
       {/* Map placeholder */}
       <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-        className="glass relative mt-16 flex h-64 items-center justify-center overflow-hidden rounded-3xl">
-        <div className="noise pointer-events-none absolute inset-0 opacity-30" />
-        <p className="relative z-10 text-sm text-mist/40">Map preview — 12 Tech Park Road, Islamabad</p>
+        className="glass relative mt-16 flex h-64 items-end overflow-hidden rounded-3xl">
+        <Image src="https://picsum.photos/seed/lumen-map/1200/500" alt="Lumen office location" fill className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
+        <p className="relative z-10 m-6 text-sm text-mist/70">12 Tech Park Road, Islamabad</p>
       </motion.section>
 
       {/* Social */}

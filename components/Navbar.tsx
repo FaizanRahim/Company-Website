@@ -2,20 +2,32 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About us" },
-  { href: "/pricing", label: "Pricing" },
+  { href: "/", label: "Home", icon: "🏠" },
+  { href: "/services", label: "Services", icon: "⚙️" },
+  { href: "/projects", label: "Projects", icon: "📁" },
+  { href: "/about", label: "About us", icon: "👥" },
+  { href: "/pricing", label: "Pricing", icon: "💰" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
+  // Prevent background scroll when menu is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
     <motion.nav
@@ -25,7 +37,7 @@ export default function Navbar() {
       className="glass sticky top-6 z-50 mx-auto flex max-w-4xl items-center justify-between rounded-full px-3 py-2"
     >
       <Link href="/" className="pl-3 font-display text-lg font-semibold">
-        Lumen<span className="text-sage">.</span>
+        NorsTack<span className="text-sage">.</span>
       </Link>
 
       <div className="hidden items-center gap-1 md:flex">
@@ -65,29 +77,75 @@ export default function Navbar() {
 
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="glass absolute left-0 right-0 top-16 flex flex-col gap-1 rounded-3xl p-3 md:hidden"
-          >
-            {links.concat([{ href: "/contact", label: "Contact us" }]).map(
-              (link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setOpen(false)}
+              className="fixed inset-0 z-40 bg-black/50 md:hidden"
+            />
+            
+            {/* Side Drawer */}
+            <motion.div
+              initial={{ x: -300 }}
+              animate={{ x: 0 }}
+              exit={{ x: -300 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="glass fixed left-0 top-0 z-40 h-screen w-72 flex flex-col gap-2 rounded-0 p-6 md:hidden"
+            >
+              {/* Close Button */}
+              <div className="flex justify-end mb-4">
+                <button
                   onClick={() => setOpen(false)}
-                  className={`rounded-2xl px-4 py-3 text-sm ${
-                    pathname === link.href
-                      ? "bg-sage font-medium text-ink"
-                      : "text-mist/80"
-                  }`}
+                  className="text-3xl font-light text-mist/80 hover:text-mist"
+                  aria-label="Close menu"
                 >
-                  {link.label}
-                </Link>
-              )
-            )}
-          </motion.div>
+                  ×
+                </button>
+              </div>
+
+              {/* Logo */}
+              <Link 
+                href="/" 
+                onClick={() => setOpen(false)}
+                className="mb-6 font-display text-xl font-semibold"
+              >
+                NorsTack<span className="text-sage">.</span>
+              </Link>
+
+              {/* Navigation Links with Icons */}
+              {links.map((link) => {
+                const active = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`flex items-center gap-4 rounded-2xl px-4 py-3 text-sm transition-colors ${
+                      active
+                        ? "bg-sage font-medium text-ink"
+                        : "text-mist/80 hover:text-mist hover:bg-white/5"
+                    }`}
+                  >
+                    <span className="text-xl">{link.icon}</span>
+                    <span>{link.label}</span>
+                  </Link>
+                );
+              })}
+
+              {/* Contact Us */}
+              <Link
+                href="/contact"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-4 rounded-2xl px-4 py-3 text-sm text-mist/80 hover:text-mist hover:bg-white/5 transition-colors mt-4"
+              >
+                <span className="text-xl">📧</span>
+                <span>Contact us</span>
+              </Link>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.nav>

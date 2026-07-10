@@ -4,9 +4,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Lumen — IT Solutions & Digital Engineering",
+  title: "NorsTack — IT Solutions & Digital Engineering",
   description:
-    "Lumen builds web platforms, cloud infrastructure, and digital products for growing businesses.",
+    "NorsTack builds web platforms, cloud infrastructure, and digital products for growing businesses.",
 };
 
 export default function RootLayout({

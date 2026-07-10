@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #d9dbd4;
+  color: #0b0f0d;
+}
+
+::selection {
+  background: #a9d8b8;
+  color: #0b0f0d;
+}
+
+/* glossy chrome/mint sphere used for the floating orbs */
+.orb {
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 45%),
+    radial-gradient(circle at 70% 75%, rgba(90, 140, 110, 0.55), rgba(20, 30, 24, 0.9) 70%),
+    conic-gradient(from 200deg, #6fae85, #c9e8d2, #1c2620, #6fae85);
+  box-shadow:
+    inset -10px -14px 30px rgba(0, 0, 0, 0.45),
+    inset 8px 10px 20px rgba(255, 255, 255, 0.25),
+    0 25px 45px rgba(0, 0, 0, 0.35);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}

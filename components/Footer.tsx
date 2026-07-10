@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="flex flex-col items-start justify-between gap-8 md:flex-row">
         <div>
           <p className="font-display text-lg font-semibold text-mist">
-            Lumen<span className="text-sage">.</span>
+            NorsTack<span className="text-sage">.</span>
           </p>
           <p className="mt-2 max-w-xs text-mist/40">
             IT solutions and digital engineering for teams that ship fast
@@ -39,7 +39,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-10 flex flex-col gap-2 border-t border-mist/10 pt-6 md:flex-row md:items-center md:justify-between">
-        <p>&copy; {new Date().getFullYear()} Lumen Technologies. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} NorsTack. All rights reserved.</p>
         <p className="text-mist/30">Built with Next.js and Tailwind CSS.</p>
       </div>
     </footer>

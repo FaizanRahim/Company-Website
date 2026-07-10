@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Counter from "@/components/Counter";
 import Marquee from "@/components/Marquee";
@@ -31,9 +32,9 @@ const process = [
 ];
 
 const testimonials = [
-  { quote: "Lumen rebuilt our platform in 10 weeks and it hasn't gone down since. Genuinely the best technical partner we've had.", name: "Fatima Noor", role: "COO, Finlytics" },
-  { quote: "They think like product owners, not just contractors. Every recommendation was backed by real user data.", name: "Hamza Sheikh", role: "Founder, Cartly" },
-  { quote: "Our infrastructure costs dropped 35% after their cloud audit. Paid for itself in the first month.", name: "Zara Iqbal", role: "CTO, Fleetwise" },
+  { quote: "NorsTack rebuilt our platform in 10 weeks and it hasn't gone down since. Genuinely the best technical partner we've had.", name: "Fatima Noor", role: "COO, Finlytics", img: "https://i.pravatar.cc/100?img=32" },
+  { quote: "They think like product owners, not just contractors. Every recommendation was backed by real user data.", name: "Hamza Sheikh", role: "Founder, Cartly", img: "https://i.pravatar.cc/100?img=12" },
+  { quote: "Our infrastructure costs dropped 35% after their cloud audit. Paid for itself in the first month.", name: "Zara Iqbal", role: "CTO, Fleetwise", img: "https://i.pravatar.cc/100?img=45" },
 ];
 
 const stack = ["React", "Next.js", "Node.js", "TypeScript", "AWS", "Docker", "PostgreSQL", "Python", "Kubernetes", "GraphQL"];
@@ -50,6 +51,13 @@ export default function Home() {
     <main>
       {/* Hero */}
       <section className="relative mt-10 overflow-hidden rounded-[32px] bg-panel p-6 md:p-12">
+        <Image
+          src="https://picsum.photos/seed/lumen-hero/1600/900"
+          alt="Engineering team working on a digital product"
+          fill
+          priority
+          className="pointer-events-none absolute inset-0 object-cover opacity-20"
+        />
         <div className="noise pointer-events-none absolute inset-0 opacity-40" />
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="orb absolute -right-16 top-10 h-48 w-48 rounded-full animate-float md:h-64 md:w-64" />
@@ -101,8 +109,9 @@ export default function Home() {
             </p>
             <div className="mt-6 flex items-center justify-between">
               <div className="flex -space-x-3">
-                {[0, 1, 2].map((i) => (
-                  <div key={i} className="h-10 w-10 rounded-full border-2 border-panel bg-sagelight/40" />
+                {[14, 25, 47].map((n) => (
+                  <Image key={n} src={`https://i.pravatar.cc/80?img=${n}`} alt="Team member" width={40} height={40}
+                    className="h-10 w-10 rounded-full border-2 border-panel object-cover" />
                 ))}
               </div>
               <Link href="/services" className="flex h-10 w-10 items-center justify-center rounded-full bg-sage text-ink transition hover:bg-sagelight">
@@ -186,7 +195,7 @@ export default function Home() {
               transition={{ delay: i * 0.1, duration: 0.5 }} className="glass flex flex-col justify-between rounded-2xl p-6">
               <p className="text-sm leading-relaxed text-mist/70">&ldquo;{t.quote}&rdquo;</p>
               <div className="mt-6 flex items-center gap-3">
-                <div className="h-9 w-9 rounded-full bg-sagelight/30" />
+                <Image src={t.img} alt={t.name} width={36} height={36} className="h-9 w-9 rounded-full object-cover" />
                 <div>
                   <p className="text-sm font-medium">{t.name}</p>
                   <p className="text-xs text-mist/40">{t.role}</p>
