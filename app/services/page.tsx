@@ -6,12 +6,16 @@ import { motion } from "framer-motion";
 import Marquee from "@/components/Marquee";
 
 const services = [
-  { title: "Web development", desc: "Custom web applications and marketing sites built with modern frameworks, optimized for speed and SEO.", points: ["React & Next.js", "Headless CMS integration", "Performance tuning"], icon: "</>" },
-  { title: "Cloud & DevOps", desc: "Infrastructure design, CI/CD pipelines, and monitoring so your systems scale without breaking.", points: ["AWS / GCP / Azure", "Containerization", "Automated deployments"], icon: "☁" },
-  { title: "Cybersecurity", desc: "Security audits, penetration testing, and hardening for applications handling sensitive data.", points: ["Vulnerability audits", "Compliance readiness", "24/7 monitoring"], icon: "◈" },
-  { title: "Mobile app development", desc: "Native and cross-platform apps for iOS and Android with a shared, maintainable codebase.", points: ["React Native", "App store deployment", "Push notifications"], icon: "▤" },
-  { title: "Data & analytics", desc: "Data pipelines and dashboards that turn raw numbers into decisions your team can act on.", points: ["ETL pipelines", "Custom dashboards", "Predictive models"], icon: "▦" },
-  { title: "IT consulting", desc: "Technical strategy for teams deciding what to build, buy, or rearchitect next.", points: ["Architecture review", "Tech stack audits", "Team augmentation"], icon: "◐" },
+  { title: "UI/UX Design", desc: "Product interfaces and user journeys designed for clarity, trust, and conversion.", points: ["Wireframes", "User flows", "Design systems"], icon: "◐" },
+  { title: "Web Development", desc: "Custom web applications and marketing sites built with modern frameworks, optimized for speed and SEO.", points: ["React & Next.js", "Headless CMS integration", "Performance tuning"], icon: "</>" },
+  { title: "Mobile App Development", desc: "Native and cross-platform mobile apps built for speed, usability, and growth.", points: ["iOS & Android", "React Native", "App store deployment"], icon: "📱" },
+  { title: "SEO Specialist", desc: "Search optimization services that improve rankings, traffic, and technical health.", points: ["Technical SEO", "On-page SEO", "Keyword strategy"], icon: "⌕" },
+  { title: "Blogging", desc: "Editorial content that builds authority and keeps your website active and relevant.", points: ["Content planning", "Article writing", "Topic research"], icon: "✎" },
+  { title: "AI Powered Apps", desc: "Intelligent apps and automations built to save time and improve decision-making.", points: ["Chatbots", "Workflow automation", "AI integrations"], icon: "✦" },
+  { title: "Project Management", desc: "Planning and delivery support that keeps timelines, scope, and communication on track.", points: ["Sprint planning", "Delivery tracking", "Team coordination"], icon: "◎" },
+  { title: "Digital Marketing", desc: "Campaigns and growth work that help your brand reach and convert the right audience.", points: ["Paid ads", "Social campaigns", "Lead generation"], icon: "↗" },
+  { title: "Wordpress Development", desc: "Custom WordPress websites, themes, and plugin workflows built for flexible content management.", points: ["Custom themes", "Plugin setup", "Speed optimization"], icon: "W" },
+  { title: "Medical & Business Software Development", desc: "Reliable software for healthcare and business operations with secure, scalable foundations.", points: ["Workflow tools", "Secure data handling", "Custom dashboards"], icon: "⚕" },
 ];
 
 const industries = ["Fintech", "Healthcare", "E-commerce", "Logistics", "SaaS", "Education"];
@@ -44,9 +48,8 @@ export default function ServicesPage() {
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
             className="mt-4 max-w-lg text-sm text-mist/50">
-            Six core services, one accountable team. We plug in wherever
-            you need us — from a single audit to your entire engineering
-            function.
+            Nine core services, one accountable team. We plug in wherever
+            you need us — from a single audit to your entire product function.
           </motion.p>
         </div>
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.6 }}

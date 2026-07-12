@@ -67,7 +67,7 @@ export default function ContactPage() {
           </motion.p>
 
           <div className="mt-10 space-y-4 text-sm text-mist/60">
-            <p><span className="text-mist/40">Address —</span> 12 Tech Park Road, Islamabad</p>
+            <p><span className="text-mist/40">Address —</span> Near KIU pump University Road Gilgit Infront of Applied Court</p>
             <p><span className="text-mist/40">Phone —</span> +92 300 1234567</p>
             <p><span className="text-mist/40">Hours —</span> Mon–Fri, 9am–6pm</p>
           </div>
@@ -142,12 +142,18 @@ export default function ContactPage() {
         </motion.form>
       </section>
 
-      {/* Map placeholder */}
+      {/* Map */}
       <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-        className="glass relative mt-16 flex h-64 items-end overflow-hidden rounded-3xl">
-        <Image src="https://picsum.photos/seed/lumen-map/1200/500" alt="Lumen office location" fill className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
-        <p className="relative z-10 m-6 text-sm text-mist/70">12 Tech Park Road, Islamabad</p>
+        className="glass relative mt-16 overflow-hidden rounded-3xl">
+        <iframe
+          title="NorsTack location in Gilgit"
+          src="https://www.google.com/maps?q=Near%20KIU%20pump%20University%20Road%20Gilgit%20Infront%20of%20Applied%20Court&output=embed"
+          className="h-72 w-full border-0 md:h-[420px]"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+        <p className="absolute bottom-6 left-6 z-10 text-sm text-mist/70">Near KIU pump University Road Gilgit Infront of Applied Court</p>
       </motion.section>
 
       {/* Social */}

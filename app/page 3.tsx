@@ -31,9 +31,9 @@ const process = [
 ];
 
 const testimonials = [
-  { quote: "Lumen rebuilt our platform in 10 weeks and it hasn't gone down since. Genuinely the best technical partner we've had.", name: "Fatima Noor", role: "COO, Finlytics" },
-  { quote: "They think like product owners, not just contractors. Every recommendation was backed by real user data.", name: "Hamza Sheikh", role: "Founder, Cartly" },
-  { quote: "Our infrastructure costs dropped 35% after their cloud audit. Paid for itself in the first month.", name: "Zara Iqbal", role: "CTO, Fleetwise" },
+  { quote: "Lumen rebuilt our platform in 10 weeks and it hasn't gone down since. Genuinely the best technical partner we've had.", name: "Alex Turner", role: "COO, Finlytics" },
+  { quote: "They think like product owners, not just contractors. Every recommendation was backed by real user data.", name: "Sydney Brooks", role: "Founder, Cartly" },
+  { quote: "Our infrastructure costs dropped 35% after their cloud audit. Paid for itself in the first month.", name: "John Miller", role: "CTO, Fleetwise" },
 ];
 
 const stack = ["React", "Next.js", "Node.js", "TypeScript", "AWS", "Docker", "PostgreSQL", "Python", "Kubernetes", "GraphQL"];

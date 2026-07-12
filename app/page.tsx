@@ -16,12 +16,16 @@ const fadeUp = {
 };
 
 const services = [
-  { title: "Web development", desc: "Fast, scalable web platforms built on modern stacks.", icon: "</>" },
-  { title: "Cloud & DevOps", desc: "Infrastructure that scales with your traffic, not against it.", icon: "☁" },
-  { title: "Cybersecurity", desc: "Audits, monitoring, and hardening for production systems.", icon: "◈" },
-  { title: "Mobile apps", desc: "Native and cross-platform apps that feel fast on every device.", icon: "▤" },
-  { title: "Data & analytics", desc: "Dashboards and pipelines that turn data into decisions.", icon: "▦" },
-  { title: "Product design", desc: "Interfaces people actually enjoy using, end to end.", icon: "◐" },
+  { title: "UI/UX Design", desc: "Clean, conversion-focused interfaces and product flows that make apps easier to use.", icon: "◐" },
+  { title: "Web Development", desc: "Fast, scalable web platforms built on modern stacks.", icon: "</>" },
+  { title: "SEO Specialist", desc: "On-page, technical, and content SEO that improves visibility and search performance.", icon: "⌕" },
+  { title: "Blogging", desc: "Consistent content planning and writing that supports authority, traffic, and leads.", icon: "✎" },
+  { title: "AI Powered Apps", desc: "Smart applications that automate tasks and create better user experiences.", icon: "✦" },
+  { title: "Project Management", desc: "Structured delivery, timelines, and coordination that keep work moving.", icon: "◎" },
+  { title: "Digital Marketing", desc: "Campaigns and funnels that help brands reach the right audience.", icon: "↗" },
+  { title: "Wordpress Development", desc: "Custom WordPress websites, themes, and plugin-based builds tailored to your needs.", icon: "W" },
+  { title: "Medical & Business Software Development", desc: "Software built for healthcare and business workflows with reliability in mind.", icon: "⚕" },
+  { title: "Mobile App Development", desc: "Cross-platform mobile applications that provide seamless user experiences.", icon: "📱" },
 ];
 
 const process = [
@@ -32,9 +36,9 @@ const process = [
 ];
 
 const testimonials = [
-  { quote: "NorsTack rebuilt our platform in 10 weeks and it hasn't gone down since. Genuinely the best technical partner we've had.", name: "Fatima Noor", role: "COO, Finlytics", img: "https://i.pravatar.cc/100?img=32" },
-  { quote: "They think like product owners, not just contractors. Every recommendation was backed by real user data.", name: "Hamza Sheikh", role: "Founder, Cartly", img: "https://i.pravatar.cc/100?img=12" },
-  { quote: "Our infrastructure costs dropped 35% after their cloud audit. Paid for itself in the first month.", name: "Zara Iqbal", role: "CTO, Fleetwise", img: "https://i.pravatar.cc/100?img=45" },
+  { quote: "NorsTack rebuilt our platform in 10 weeks and it hasn't gone down since. Genuinely the best technical partner we've had.", name: "Alex Turner", role: "COO, Finlytics", img: "https://i.pravatar.cc/100?img=32" },
+  { quote: "They think like product owners, not just contractors. Every recommendation was backed by real user data.", name: "Sydney Brooks", role: "Founder, Cartly", img: "https://i.pravatar.cc/100?img=12" },
+  { quote: "Our infrastructure costs dropped 35% after their cloud audit. Paid for itself in the first month.", name: "John Miller", role: "CTO, Fleetwise", img: "https://i.pravatar.cc/100?img=45" },
 ];
 
 const stack = ["React", "Next.js", "Node.js", "TypeScript", "AWS", "Docker", "PostgreSQL", "Python", "Kubernetes", "GraphQL"];
@@ -83,7 +87,7 @@ export default function Home() {
 
             <motion.p initial="hidden" animate="show" variants={fadeUp} custom={2}
               className="mt-6 max-w-md text-sm leading-relaxed text-mist/60">
-              From cloud infrastructure to custom software, we partner with
+              From UI/UX design to medical and business software, we partner with
               growing companies to design, build, and ship products that
               hold up under real traffic.
             </motion.p>

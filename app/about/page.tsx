@@ -6,12 +6,12 @@ import { motion } from "framer-motion";
 import Counter from "@/components/Counter";
 
 const team = [
-  { name: "Zaman", role: "CEO & CO-Founder", img: "https://i.pravatar.cc/300?img=1" },
-  { name: "Asim", role: "CO-Founder", img: "https://i.pravatar.cc/300?img=2" },
-  { name: "Danish Ali", role: "CTO", img: "https://i.pravatar.cc/300?img=3" },
-  { name: "Zakir Butt", role: "CFO & HR", img: "https://i.pravatar.cc/300?img=4" },
-  { name: "Ejaz Mir", role: "Web Developer", img: "https://i.pravatar.cc/300?img=5" },
-  { name: "Faizan Rahim", role: "Team Lead", img: "https://i.pravatar.cc/300?img=6" },
+  { name: "Zaman", role: "CEO & Co-Founder", specialty: "UI/UX Design", img: "https://i.pravatar.cc/300?img=1", upwork: "Top Rated Plus" },
+  { name: "Asim", role: "Co-Founder", specialty: "UI/UX Design", img: "/Asim.jpeg", upwork: "Top Rated" },
+  { name: "Danish Ali", role: "CTO", specialty: "SEO Specialist", img: "/Danish.png", upwork: "Top Rated Plus" },
+  { name: "Zakir Butt", role: "CFO & HR", specialty: "Project Management", img: "/zakir.jpeg", upwork: "Top Rated" },
+  { name: "Ejaz Mir", role: "Web Developer", specialty: "React & Next.js", img: "/ejz.jpeg", upwork: "Top Rated" },
+  { name: "Faizan Rahim", role: "Team Lead", specialty: "Full-Stack Development", img: "/Faizan.png", upwork: "Top Rated Plus" },
 ];
 
 const values = [
@@ -60,12 +60,45 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
+      <section className="mt-16 grid gap-6 md:grid-cols-[1.1fr_1fr] md:items-stretch">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="glass rounded-[32px] p-8 md:p-10"
+        >
+          <p className="text-xs uppercase tracking-widest text-sage">Location</p>
+          <h2 className="mt-2 font-display text-3xl font-semibold md:text-4xl">Visit us in Gilgit</h2>
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-mist/60">
+            Near KIU pump University Road Gilgit Infront of Applied Court.
+          </p>
+          <p className="mt-6 text-sm text-mist/50">
+            We&apos;re available for project discussions, partnership talks, and client meetings.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="glass overflow-hidden rounded-[32px]"
+        >
+          <iframe
+            title="NorsTack location in Gilgit"
+            src="https://www.google.com/maps?q=Near%20KIU%20pump%20University%20Road%20Gilgit%20Infront%20of%20Applied%20Court&output=embed"
+            className="h-72 w-full border-0 md:h-full min-h-[320px]"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </motion.div>
+      </section>
+
       {/* Founder spotlight */}
       <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
         className="glass mt-16 flex flex-col items-center gap-6 rounded-[32px] p-8 text-center md:flex-row md:text-left md:p-10">
         <Image
           src="https://i.pravatar.cc/240?img=1"
-          alt="Zaman, CEO & CO-Founder"
+          alt="Zaman, CEO & Co-Founder"
           width={120}
           height={120}
           className="h-28 w-28 shrink-0 rounded-full object-cover ring-2 ring-sage/40"
@@ -79,7 +112,7 @@ export default function AboutPage() {
             the table, and together we create things that matter.&rdquo;
           </p>
           <p className="mt-3 text-sm font-medium">Zaman</p>
-          <p className="text-xs text-mist/40">CEO & CO-Founder</p>
+          <p className="text-xs text-mist/40">CEO & Co-Founder</p>
         </div>
       </motion.section>
 
@@ -130,13 +163,17 @@ export default function AboutPage() {
       <section className="mt-24">
         <p className="text-xs uppercase tracking-widest text-sage">The team</p>
         <h2 className="mt-2 font-display text-3xl font-semibold md:text-4xl">People behind the work</h2>
-        <div className="mt-8 grid gap-4 md:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {team.map((t, i) => (
             <motion.div key={t.name} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.5 }} whileHover={{ y: -4 }} className="glass rounded-2xl p-5 text-center">
-              <Image src={t.img} alt={t.name} width={64} height={64} className="mx-auto h-16 w-16 rounded-full object-cover" />
-              <p className="mt-3 text-sm font-medium">{t.name}</p>
-              <p className="text-xs text-mist/40">{t.role}</p>
+              transition={{ delay: i * 0.08, duration: 0.5 }} whileHover={{ y: -4 }} className="glass rounded-3xl p-8 text-center">
+              <Image src={t.img} alt={t.name} width={100} height={100} className="mx-auto h-24 w-24 rounded-full object-cover ring-2 ring-sage/30" />
+              <p className="mt-4 font-display text-lg font-semibold">{t.name}</p>
+              <p className="text-sm text-sage font-medium">{t.role}</p>
+              <p className="mt-2 text-xs text-mist/50">{t.specialty}</p>
+              <div className="mt-4 flex items-center justify-center gap-2">
+                <span className="inline-block rounded-full bg-sage/20 px-3 py-1 text-xs font-medium text-sage">{t.upwork}</span>
+              </div>
             </motion.div>
           ))}
         </div>
