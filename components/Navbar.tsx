@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -36,8 +37,9 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="glass sticky top-6 z-50 mx-auto flex max-w-4xl items-center justify-between rounded-full px-3 py-2"
     >
-      <Link href="/" className="pl-3 font-display text-lg font-semibold">
-        NorsTack<span className="text-sage">.</span>
+      <Link href="/" className="flex items-center gap-2 pl-2 font-display text-lg font-semibold">
+        <Image src="/logo.svg" alt="NorsTack logo" width={28} height={28} className="h-7 w-7" />
+        <span>NorsTack</span><span className="text-sage">.</span>
       </Link>
 
       <div className="hidden items-center gap-1 md:flex">
@@ -110,9 +112,10 @@ export default function Navbar() {
               <Link 
                 href="/" 
                 onClick={() => setOpen(false)}
-                className="mb-6 font-display text-xl font-semibold"
+                className="mb-6 flex items-center gap-2 font-display text-xl font-semibold"
               >
-                NorsTack<span className="text-sage">.</span>
+                <Image src="/logo.svg" alt="NorsTack logo" width={28} height={28} className="h-7 w-7" />
+                <span>NorsTack</span><span className="text-sage">.</span>
               </Link>
 
               {/* Navigation Links with Icons */}

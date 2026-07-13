@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "NorsTack — IT Solutions & Digital Engineering",
   description:
     "NorsTack builds web platforms, cloud infrastructure, and digital products for growing businesses.",
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
