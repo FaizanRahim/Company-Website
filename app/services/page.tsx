@@ -9,7 +9,7 @@ const services = [
   { title: "UI/UX Design", desc: "Product interfaces and user journeys designed for clarity, trust, and conversion.", points: ["Wireframes", "User flows", "Design systems"], icon: "◐" },
   { title: "Web Development", desc: "Custom web applications and marketing sites built with modern frameworks, optimized for speed and SEO.", points: ["React & Next.js", "Headless CMS integration", "Performance tuning"], icon: "</>" },
   { title: "Mobile App Development", desc: "Native and cross-platform mobile apps built for speed, usability, and growth.", points: ["iOS & Android", "React Native", "App store deployment"], icon: "📱" },
-  { title: "SEO Specialist", desc: "Search optimization services that improve rankings, traffic, and technical health.", points: ["Technical SEO", "On-page SEO", "Keyword strategy"], icon: "⌕" },
+  { title: "SEO Specialist", desc: "Search optimization services that improve rankings, traffic, and technical health.", points: ["Local SEO", "SEO Audit", "Create Backlinks"], icon: "⌕" },
   { title: "Blogging", desc: "Editorial content that builds authority and keeps your website active and relevant.", points: ["Content planning", "Article writing", "Topic research"], icon: "✎" },
   { title: "AI Powered Apps", desc: "Intelligent apps and automations built to save time and improve decision-making.", points: ["Chatbots", "Workflow automation", "AI integrations"], icon: "✦" },
   { title: "Project Management", desc: "Planning and delivery support that keeps timelines, scope, and communication on track.", points: ["Sprint planning", "Delivery tracking", "Team coordination"], icon: "◎" },
@@ -54,7 +54,7 @@ export default function ServicesPage() {
         </div>
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.6 }}
           className="glass relative h-56 overflow-hidden rounded-3xl md:h-72">
-          <Image src="https://picsum.photos/seed/lumen-services/900/600" alt="Engineers pairing on a project" fill className="object-cover" />
+          <Image src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=1400&h=900&fit=crop&q=90" alt="Engineers pairing on a project" fill className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
         </motion.div>
       </section>

@@ -5,18 +5,32 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-const categories = ["All", "Fintech", "E-commerce", "Healthcare", "Logistics", "SaaS", "Security"];
+const categories = ["All", "Tourism", "Healthcare", "Agency", "UI/UX Design", "Blogging", "E-commerce"];
 
 const projects = [
-  { name: "Finlytics", tag: "Fintech", desc: "Real-time analytics platform for a payments startup, handling 2M+ transactions monthly.", stat: "2M+ tx / mo", img: "finlytics" },
-  { name: "Cartly", tag: "E-commerce", desc: "Headless storefront rebuild that cut page load time by 60% and lifted conversion by 18%.", stat: "+18% conversion", img: "cartly" },
-  { name: "MedSync", tag: "Healthcare", desc: "HIPAA-compliant patient scheduling system used across 40 clinics.", stat: "40 clinics", img: "medsync" },
-  { name: "Fleetwise", tag: "Logistics", desc: "Cloud infrastructure and live tracking for a regional delivery fleet.", stat: "300+ vehicles", img: "fleetwise" },
-  { name: "Studio OS", tag: "SaaS", desc: "Project management tool built from scratch for creative agencies.", stat: "5k+ users", img: "studioos" },
-  { name: "Vaultpay", tag: "Security", desc: "Security audit and infrastructure hardening for a digital wallet provider.", stat: "0 breaches", img: "vaultpay" },
-  { name: "Ledgerly", tag: "Fintech", desc: "Automated bookkeeping platform integrating with 12 major banks.", stat: "12 bank APIs", img: "ledgerly" },
-  { name: "Shelfie", tag: "E-commerce", desc: "Inventory sync engine connecting Shopify, Amazon, and in-store POS.", stat: "3 channels synced", img: "shelfie" },
-  { name: "CarePath", tag: "Healthcare", desc: "Patient intake and triage app reducing wait times by 40%.", stat: "-40% wait time", img: "carepath" },
+  // Tourism Projects
+  { name: "Paradise Travel - Hotel Booking Platform", tag: "Tourism", desc: "Luxury hotel and resort booking website with real-time availability, interactive maps, and 5-star guest reviews. Increased bookings by 240%.", stat: "+240% bookings", img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&h=600&fit=crop&q=90" },
+  { name: "Adventure Tours - Travel Agency Website", tag: "Tourism", desc: "Complete travel itinerary platform with tour packages, destination guides, and integrated payment system. Ranked #1 for local keywords.", stat: "#1 local SEO", img: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop&q=90" },
+
+  // Healthcare Projects
+  { name: "HealthCare Plus - Patient Portal", tag: "Healthcare", desc: "HIPAA-compliant patient management system with appointment booking, medical records, and telemedicine integration for 50+ clinics.", stat: "50+ clinics", img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop&q=90" },
+  { name: "MediSync - Doctor Consultation App", tag: "Healthcare", desc: "Mobile-first appointment and prescription management for healthcare providers. Reduced no-shows by 65%.", stat: "-65% no-shows", img: "https://images.unsplash.com/photo-1631217314230-afa03d10db00?w=800&h=600&fit=crop&q=90" },
+
+  // Agency Websites
+  { name: "Creative Studios - Agency Portfolio", tag: "Agency", desc: "Stunning agency portfolio showcasing case studies, team, and services with interactive animations and client testimonials. Won design award.", stat: "Design Award", img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop&q=90" },
+  { name: "Digital Innovations Co - Service Showcase", tag: "Agency", desc: "Corporate agency website with service showcase, project gallery, and lead generation forms. Generated 500+ qualified leads monthly.", stat: "500+ leads/mo", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=90" },
+
+  // UI/UX Design Projects
+  { name: "SaaS Dashboard Design System", tag: "UI/UX Design", desc: "Complete design system with 200+ components, dark/light themes, and accessibility standards. Improved user engagement by 45%.", stat: "+45% engagement", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop&q=90" },
+  { name: "Mobile App UI/UX Overhaul", tag: "UI/UX Design", desc: "User research-driven redesign increasing app retention by 38% and app store rating to 4.8 stars.", stat: "4.8★ rating", img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop&q=90" },
+
+  // Blogging Projects
+  { name: "Tech Blog Platform - SEO Optimized", tag: "Blogging", desc: "Content management system for tech publishing with SEO optimization, ranking 80+ keywords in Google top 3. 50k+ monthly readers.", stat: "50k+ readers/mo", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop&q=90" },
+  { name: "Lifestyle Magazine - Content Hub", tag: "Blogging", desc: "Multi-author blogging platform with advanced search, reading time estimates, and social sharing. Grew organic traffic by 320%.", stat: "+320% traffic", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=90" },
+
+  // E-commerce Projects
+  { name: "Fashion E-store - Shopify Plus", tag: "E-commerce", desc: "High-performance fashion store with 3D product views, size guides, and AI recommendations. AOV increased by 55%.", stat: "+55% AOV", img: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=800&h=600&fit=crop&q=90" },
+  { name: "Organic Products Shop - B2B/B2C", tag: "E-commerce", desc: "Multi-vendor marketplace for organic products with inventory sync and wholesale pricing. $2M+ first-year revenue.", stat: "$2M+ revenue", img: "https://images.unsplash.com/photo-1624623278313-c3b50312cb1d?w=800&h=600&fit=crop&q=90" },
 ];
 
 export default function ProjectsPage() {
@@ -57,7 +71,7 @@ export default function ProjectsPage() {
               <div>
                 <div className="relative flex h-32 items-end overflow-hidden rounded-xl">
                   <Image
-                    src={`https://picsum.photos/seed/${p.img}/500/300`}
+                    src={p.img}
                     alt={p.name}
                     fill
                     className="object-cover"

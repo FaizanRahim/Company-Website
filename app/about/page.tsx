@@ -1,17 +1,78 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Counter from "@/components/Counter";
 
 const team = [
-  { name: "Zaman", role: "CEO & Co-Founder", specialty: "UI/UX Design", img: "https://i.pravatar.cc/300?img=1", upwork: "Top Rated Plus" },
-  { name: "Asim", role: "Co-Founder", specialty: "UI/UX Design", img: "/Asim.jpeg", upwork: "Top Rated" },
-  { name: "Danish Ali", role: "CTO", specialty: "SEO Specialist", img: "/Danish.png", upwork: "Top Rated Plus" },
-  { name: "Zakir Butt", role: "CFO & HR", specialty: "Project Management", img: "/zakir.jpeg", upwork: "Top Rated" },
-  { name: "Ejaz Mir", role: "Web Developer", specialty: "React & Next.js", img: "/ejz.jpeg", upwork: "Top Rated" },
-  { name: "Faizan Rahim", role: "Team Lead", specialty: "Full-Stack Development", img: "/Faizan.png", upwork: "Top Rated Plus" },
+  {
+    name: "Sher Zaman",
+    role: "CEO & Co-Founder",
+    specialty: "UI/UX Design",
+    img: "https://i.pravatar.cc/300?img=1",
+    upwork: "Top Rated Plus",
+    bio: "Leads product direction, design strategy, and client discovery for web and mobile products.",
+    workLink: "/projects",
+    linkedin: "https://www.linkedin.com/",
+    upworkLink: "https://www.upwork.com/",
+  },
+  {
+    name: "Asim Ahmed",
+    role: "Co-Founder",
+    specialty: "Product Designer",
+    img: "/Asim.jpeg",
+    upwork: "Top Rated Plus",
+    bio: "Creates product systems, interface flows, and visual identities for customer-facing platforms.",
+    workLink: "/services",
+    linkedin: "https://www.linkedin.com/",
+    upworkLink: "https://www.upwork.com/",
+  },
+  {
+    name: "Danish Hussain",
+    role: "CTO",
+    specialty: "SEO Specialist",
+    img: "/Danish.png",
+    upwork: "Top Rated Plus",
+    bio: "Oversees technical architecture, SEO performance, and the stability of production systems.",
+    workLink: "/services",
+    linkedin: "https://www.linkedin.com/",
+    upworkLink: "https://www.upwork.com/freelancers/~014d173a73c57ae14b?mp_source=share",
+  },
+  {
+    name: "Zakir Hussain",
+    role: "CFO & HR",
+    specialty: "Project Management",
+    img: "/zakir.jpeg",
+    upwork: "Top Rated",
+    bio: "Coordinates teams, delivery timelines, and communication so projects stay on schedule.",
+    workLink: "/contact",
+    linkedin: "https://www.linkedin.com/",
+    upworkLink: "https://www.upwork.com/",
+  },
+  {
+    name: "Ejaz Mir",
+    role: "Web Developer",
+    specialty: "React & Next.js",
+    img: "/ejz.jpeg",
+    upwork: "Top Rated",
+    bio: "Builds responsive web experiences, reusable UI components, and performant frontends.",
+    workLink: "/projects",
+    linkedin: "https://www.linkedin.com/",
+    upworkLink: "https://www.upwork.com/",
+  },
+  {
+    name: "Faizan Rahim",
+    role: "Team Lead",
+    specialty: "Full-Stack Development",
+    img: "/Faizan.png",
+    upwork: "Top Rated Plus",
+    bio: "Guides engineering execution across backend, frontend, and delivery planning.",
+    workLink: "/services",
+    linkedin: "https://www.linkedin.com/",
+    upworkLink: "https://www.upwork.com/",
+  },
 ];
 
 const values = [
@@ -28,6 +89,8 @@ const timeline = [
 ];
 
 export default function AboutPage() {
+  const [activeTeamMember, setActiveTeamMember] = useState<string | null>(null);
+
   return (
     <main className="pb-10">
       <section className="mt-10 grid gap-10 md:grid-cols-2 md:items-center">
@@ -165,16 +228,49 @@ export default function AboutPage() {
         <h2 className="mt-2 font-display text-3xl font-semibold md:text-4xl">People behind the work</h2>
         <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {team.map((t, i) => (
-            <motion.div key={t.name} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.5 }} whileHover={{ y: -4 }} className="glass rounded-3xl p-8 text-center">
-              <Image src={t.img} alt={t.name} width={100} height={100} className="mx-auto h-24 w-24 rounded-full object-cover ring-2 ring-sage/30" />
-              <p className="mt-4 font-display text-lg font-semibold">{t.name}</p>
-              <p className="text-sm text-sage font-medium">{t.role}</p>
-              <p className="mt-2 text-xs text-mist/50">{t.specialty}</p>
-              <div className="mt-4 flex items-center justify-center gap-2">
-                <span className="inline-block rounded-full bg-sage/20 px-3 py-1 text-xs font-medium text-sage">{t.upwork}</span>
+            <motion.button
+              key={t.name}
+              type="button"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              whileHover={{ y: -4 }}
+              onClick={() => setActiveTeamMember(activeTeamMember === t.name ? null : t.name)}
+              className="glass rounded-3xl p-8 text-left"
+            >
+              <div className="flex flex-col items-center text-center">
+                <Image src={t.img} alt={t.name} width={100} height={100} className="mx-auto h-24 w-24 rounded-full object-cover ring-2 ring-sage/30" />
+                <p className="mt-4 font-display text-lg font-semibold">{t.name}</p>
+                <p className="text-sm text-sage font-medium">{t.role}</p>
+                <p className="mt-2 text-xs text-mist/50">{t.specialty}</p>
+                <div className="mt-4 flex items-center justify-center gap-2">
+                  <span className="inline-block rounded-full bg-sage/20 px-3 py-1 text-xs font-medium text-sage">{t.upwork}</span>
+                </div>
               </div>
-            </motion.div>
+
+              <motion.div
+                initial={false}
+                animate={activeTeamMember === t.name ? { height: "auto", opacity: 1, marginTop: 20 } : { height: 0, opacity: 0, marginTop: 0 }}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-mist/70">
+                  <p>{t.bio}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <a href={t.upworkLink} target="_blank" rel="noreferrer" className="rounded-full bg-sage/15 px-3 py-1 text-xs font-medium text-sage transition hover:bg-sage/25">
+                      Upwork
+                    </a>
+                    <a href={t.linkedin} target="_blank" rel="noreferrer" className="rounded-full bg-sage/15 px-3 py-1 text-xs font-medium text-sage transition hover:bg-sage/25">
+                      LinkedIn
+                    </a>
+                    <Link href={t.workLink} className="rounded-full bg-sage/15 px-3 py-1 text-xs font-medium text-sage transition hover:bg-sage/25">
+                      Related work
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.button>
           ))}
         </div>
       </section>

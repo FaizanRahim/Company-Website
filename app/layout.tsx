@@ -21,8 +21,10 @@ export default function RootLayout({
     <html lang="en">
       <body className="relative min-h-screen bg-ink font-body text-mist antialiased">
         <div className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-br from-[#141d17] via-[#0b0d0b] to-[#0b0d0b]" />
-        <div className="mx-auto max-w-7xl px-4 pt-6 md:px-8">
+        <div className="mx-auto w-full max-w-7xl px-4 pt-6 md:px-8">
           <Navbar />
+        </div>
+        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
           {children}
           <Footer />
         </div>

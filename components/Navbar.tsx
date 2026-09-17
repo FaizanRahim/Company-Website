@@ -35,7 +35,7 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="glass sticky top-6 z-50 mx-auto flex max-w-4xl items-center justify-between rounded-full px-3 py-2"
+      className="glass sticky top-6 z-50 mx-auto flex w-full items-center justify-between rounded-full px-3 py-2"
     >
       <Link href="/" className="flex items-center gap-2 pl-2 font-display text-lg font-semibold">
         <Image src="/logo.svg" alt="NorsTack logo" width={28} height={28} className="h-7 w-7" />
